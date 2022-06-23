@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <div id="left">
+        <img id="signup-img" src="https://source.unsplash.com/sbFmoKBK7jU" alt="">
+    </div>
+    <div id="right">
+        {{ error }}
+        <h1 id="signup-title">Signup</h1>
+        <form method="POST">{% csrf_token %}
+            <div class="signup-item">
+                <label class="signup-label">User Name</label>
+                <input type="text" name="username" placeholder="ユーザー名を入力" required>
+            </div>
+            <div class="signup-item">
+                <label class="signup-label">Email Address</label>
+                <input type="email" name="email" placeholder="メールアドレスを入力" required>
+            </div>
+            <div class="signup-item">
+                <label class="signup-label">Password</label>
+            <input type="password" name="password" placeholder="パスワードを入力" required>
+            </div>
+            <div id="btn-wrapper">
+                <button type="submit">Signup</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
