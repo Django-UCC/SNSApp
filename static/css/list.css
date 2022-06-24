@@ -1,0 +1,69 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+#container{
+    display: flex;
+}
+
+#left{
+    width: 25%;
+    position: sticky;
+}
+
+#center{
+    width: 50%;
+}
+
+#right{
+    width: 25%;
+}
+
+#logo{
+    font-size: 3rem;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+#logo > a{
+    color:aqua;
+}
+
+li{
+    list-style: none;
+    margin-bottom: 3rem;
+}
+
+li > a{
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#title{
+    text-align: center;
+}
+
+#right-title{
+    text-align: center;
+}
+
+#good{
+    padding: 0.5rem 2rem;
+    border: none;
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.author{
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+.content{
+    font-size: 1rem;
+}
