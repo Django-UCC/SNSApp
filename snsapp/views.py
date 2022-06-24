@@ -1,7 +1,9 @@
 from django.db import IntegrityError
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+
+from snsapp.models import PostModel
 
 # 会員登録
 def signupfunc(request):
@@ -11,7 +13,7 @@ def signupfunc(request):
         password = request.POST['password']
         try:
             user = User.objects.create_user(username, email, password)
-            return render(request, 'signup.html')
+            return redirect('list')
         except IntegrityError:
             return render(request, 'signup.html', {'error': 'このユーザーは既に登録されています。'})
     return render(request, 'signup.html' ,{})
@@ -24,8 +26,11 @@ def loginfunc(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            print('login完了')
+            return redirect('list')
         else:
             return render(request, 'login.html',{'error': 'ユーザーが登録されていません。'})
     return render(request, 'login.html' ,{})
 
+def listfunc(request):
+    postsList = PostModel.objects.all()
+    return render(request, 'list.html', {'postsList': postsList})

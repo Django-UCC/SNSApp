@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/list.css' %}">
+{% endblock css %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+<div id="container">
+    <div id="left">
+        <span id="logo"><a href="/list">SNSApp</a></span>
+        <ul>
+            <li><a href="#">ホーム</a></li>
+            <li><a href="#">通知</a></li>
+            <li><a href="#">プロフィール</a></li>
+            <li><a href="#">ログアウト</a></li>
+        </ul>
+    </div>
+    <div id="center">
+        <h1 id="title">ホーム</h1>
+        <div id="post-wrapper">
+            {% for post in postsList %}
+            <div class="post">
+                <p class="author">{{ post.author }}</p>
+                <p class="content">{{ post.content }}</p>
+                <button id="good">いいね</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="right">
+        <h2 id="right-title">おすすめユーザー</h2>
+    </div>
+</div>
+{% endblock content %}
